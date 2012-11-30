@@ -27,6 +27,7 @@ git_branch = master
 spec_file = fedora/$(name).spec
 
 rpmbuild_dir = $(CURDIR)/rpmbuild
+debbuild_dir = $(CURDIR)/debbuild
 
 
 all: 
@@ -35,8 +36,14 @@ all:
 
 clean:
 	@echo "Cleaning..."
-	rm -rf $(rpmbuild_dir) $(spec_file) *.rpm $(name)
+	rm -rf $(rpmbuild_dir) $(spec_file) *.rpm
+	rm -rf $(debbuild_dir) *.deb
+	rm -fr $(name)*
 
+
+#
+# RPM
+#
 
 spec:
 	@echo "Setting version and release in spec file: $(version)-$(release)"
@@ -60,11 +67,26 @@ rpm: pre_rpmbuild
 	rpmbuild --nodeps -v -ba $(spec_file) --define "_topdir $(rpmbuild_dir)"
 	find $(rpmbuild_dir)/RPMS -name "*.rpm" -exec cp '{}' . \;
 
-git_source:
-	@echo "Checkout source from $(git_url)"
-	git clone $(git_url) $(name)
-	(cd $(name) && git checkout $(git_branch))
-	(cd $(name) && make dist)
-#	mkdir -p $(rpmbuild_dir)/SOURCES
-#	cp $(name)/$(name)-$(version).tar.gz $(rpmbuild_dir)/SOURCES
+
+#
+# Debian
+#
+
+pre_debbuild:
+	@echo "Prepare for Debian building in $(debbuild_dir)"
+	mkdir -p $(debbuild_dir)
+#	test -f $(debbuild_dir)/$(name)_$(version).orig.tar.gz || wget -O $(debbuild_dir)/$(name)_$(version).orig.tar.gz $(dist_url)
+#	tar -C $(debbuild_dir) -xzf $(debbuild_dir)/$(name)_$(version).orig.tar.gz
+	cp -r debian $(debbuild_dir)/$(name)-$(version)
+
+
+deb-src: pre_debbuild
+	@echo "Building Debian source package in $(debbuild_dir)"
+	cd $(debbuild_dir) && dpkg-source -b $(name)-$(version)
+	find $(debbuild_dir) -maxdepth 1 -type f -exec cp '{}' . \;
+
+deb: pre_debbuild
+	@echo "Building Debian package in $(debbuild_dir)"
+	cd $(debbuild_dir)/$(name)-$(version) && debuild -us -uc 
+	find $(debbuild_dir) -maxdepth 1 -name "*.deb" -exec cp '{}' . \;
 
