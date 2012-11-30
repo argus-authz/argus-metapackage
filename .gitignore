@@ -1,0 +1,3 @@
+/rpmbuild
+/*.rpm
+/fedora/*.spec
