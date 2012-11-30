@@ -29,7 +29,9 @@ spec_file = fedora/$(name).spec
 rpmbuild_dir = $(CURDIR)/rpmbuild
 
 
-all: srpm
+all: 
+	@echo "make srpm|rpm for RPM packages"
+	@echo "make deb-src|deb for Debian packages"
 
 clean:
 	@echo "Cleaning..."
