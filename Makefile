@@ -28,6 +28,7 @@ spec_file = fedora/$(name).spec
 
 rpmbuild_dir = $(CURDIR)/rpmbuild
 debbuild_dir = $(CURDIR)/debbuild
+tmp_dir = $(CURDIR)/tmp
 
 
 all: 
@@ -38,8 +39,17 @@ clean:
 	@echo "Cleaning..."
 	rm -rf $(rpmbuild_dir) $(spec_file) *.rpm
 	rm -rf $(debbuild_dir) *.deb
+	rm -fr $(tmp_dir)
 	rm -fr $(name)*
 
+dist:
+	@echo "Package the sources..."
+	test ! -d $(tmp_dir) || rm -fr $(tmp_dir)
+	mkdir -p $(tmp_dir)/$(name)-$(version)
+	cp README.md $(tmp_dir)/$(name)-$(version)
+	test ! -f $(name)-$(version).tar.gz || rm $(name)-$(version).tar.gz
+	tar -C $(tmp_dir) -czf $(name)-$(version).tar.gz $(name)-$(version)
+	rm -fr $(tmp_dir)
 
 #
 # RPM
@@ -74,9 +84,9 @@ rpm: pre_rpmbuild
 
 pre_debbuild:
 	@echo "Prepare for Debian building in $(debbuild_dir)"
-	mkdir -p $(debbuild_dir)
-#	test -f $(debbuild_dir)/$(name)_$(version).orig.tar.gz || wget -O $(debbuild_dir)/$(name)_$(version).orig.tar.gz $(dist_url)
-#	tar -C $(debbuild_dir) -xzf $(debbuild_dir)/$(name)_$(version).orig.tar.gz
+	mkdir -p $(debbuild_dir)/$(name)-$(version)
+	test -f $(debbuild_dir)/$(name)_$(version).orig.tar.gz || make dist && cp $(name)-$(version).tar.gz $(debbuild_dir)/$(name)_$(version).orig.tar.gz
+	tar -C $(debbuild_dir) -xzf $(debbuild_dir)/$(name)_$(version).orig.tar.gz
 	cp -r debian $(debbuild_dir)/$(name)-$(version)
 
 

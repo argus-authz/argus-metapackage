@@ -1,4 +1,4 @@
-#Source: argus-pep-common
+Source: emi-argus
 Priority: extra
 Maintainer: Valery Tschopp <valery.tschopp@switch.ch>
 Build-Depends: debhelper (>= 7.0.50~)

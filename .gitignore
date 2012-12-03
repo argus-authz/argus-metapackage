@@ -1,4 +1,7 @@
 /rpmbuild
 /debbuild
 /*.rpm
+/*.deb
+/*.dsc
+/*.tar.gz
 /fedora/*.spec
