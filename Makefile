@@ -42,15 +42,6 @@ clean:
 	rm -fr $(tmp_dir)
 	rm -fr $(name)*
 
-dist:
-	@echo "Package the sources..."
-	test ! -d $(tmp_dir) || rm -fr $(tmp_dir)
-	mkdir -p $(tmp_dir)/$(name)-$(version)
-	cp README.md $(tmp_dir)/$(name)-$(version)
-	test ! -f $(name)-$(version).tar.gz || rm $(name)-$(version).tar.gz
-	tar -C $(tmp_dir) -czf $(name)-$(version).tar.gz $(name)-$(version)
-	rm -fr $(tmp_dir)
-
 #
 # RPM
 #
