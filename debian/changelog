@@ -1,5 +1,5 @@
-emi-argus (1.6.0-1) unstable; urgency=low
+emi-argus (1.6.0) unstable; urgency=low
 
-  * Argus metapackage for EMI-3.
+  * Argus metapackage for EMI-3. Close #007
 
  -- Valery Tschopp <valery.tschopp@switch.ch>  Wed, 14 Nov 2012 14:59:16 +0100

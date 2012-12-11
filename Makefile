@@ -63,7 +63,6 @@ spec:
 pre_rpmbuild: spec
 	@echo "Preparing for rpmbuild in $(rpmbuild_dir)"
 	mkdir -p $(rpmbuild_dir)/BUILD $(rpmbuild_dir)/RPMS $(rpmbuild_dir)/SOURCES $(rpmbuild_dir)/SPECS $(rpmbuild_dir)/SRPMS
-	#test -f $(rpmbuild_dir)/SOURCES/$(name)-$(version).tar.gz || wget -P $(rpmbuild_dir)/SOURCES $(dist_url)
 
 
 srpm: pre_rpmbuild
@@ -85,8 +84,6 @@ rpm: pre_rpmbuild
 pre_debbuild:
 	@echo "Prepare for Debian building in $(debbuild_dir)"
 	mkdir -p $(debbuild_dir)/$(name)-$(version)
-	test -f $(debbuild_dir)/$(name)_$(version).orig.tar.gz || make dist && cp $(name)-$(version).tar.gz $(debbuild_dir)/$(name)_$(version).orig.tar.gz
-	tar -C $(debbuild_dir) -xzf $(debbuild_dir)/$(name)_$(version).orig.tar.gz
 	cp -r debian $(debbuild_dir)/$(name)-$(version)
 
 
