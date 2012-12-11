@@ -3,7 +3,7 @@ Priority: extra
 Maintainer: Valery Tschopp <valery.tschopp@switch.ch>
 Build-Depends: debhelper (>= 7.0.50~)
 Standards-Version: 3.9.1
-Section: java
+Section: misc
 Homepage: https://twiki.cern.ch/twiki/bin/view/EGEE/AuthorizationFramework
 Vcs-Git: git://github.com/argus-authz/argus-metapackage.git
 Vcs-Browser: https://github.com/argus-authz/argus-metapackage
@@ -11,7 +11,7 @@ Vcs-Browser: https://github.com/argus-authz/argus-metapackage
 Package: emi-argus
 Architecture: all
 Depends: emi-version, argus-pap, argus-pdp, argus-pep-server, ${misc:Depends}
-Description: Argus metapackage.
+Description: Argus meta-package.
  The Argus Authorization Service is composed of three main 
  components:
  - The Policy Administration Point (PAP) provides the tools to 
