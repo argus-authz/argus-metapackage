@@ -8,7 +8,18 @@ The EMI Argus metapackage `emi-argus` depends on:
  - Argus `pepcli` command (for testing purpose): `argus-pepcli`
  - YAIM configuration for Argus services: `glite-yaim-argus-server`
 
+Building
+--------
+
+Debian and Fedora compatible packages can be build.
+
+To build source RPM package: `make srpm`
+To build binary RPM package: `make rpm`
+
+To build Debian source package: `make deb-src`
+To build Debian binary package: `make deb`
+
 Packages
 --------
 
-See http://argus-authz.github.com/argus-metapackage
+Prebuild packages are available at http://argus-authz.github.com/argus-metapackage
