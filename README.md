@@ -13,11 +13,9 @@ Building
 
 Debian and Fedora compatible packages can be build.
 
-To build source RPM package: `make srpm`
-To build binary RPM package: `make rpm`
+To build source RPM package: `make srpm` and to build binary RPM package: `make rpm`
 
-To build Debian source package: `make deb-src`
-To build Debian binary package: `make deb`
+To build Debian source package: `make deb-src` and to build Debian binary package: `make deb`
 
 Packages
 --------
