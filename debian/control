@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/argus-authz/argus-metapackage
 
 Package: emi-argus
 Architecture: all
-Depends: emi-version, argus-pap, argus-pdp, argus-pep-server, ${misc:Depends}
+Depends: emi-version, argus-pap, argus-pdp, argus-pep-server, glite-yaim-argus-server, bdii, ${misc:Depends}
 Description: Argus EMI meta-package (PAP, PDP and PEP Server).
  The Argus Authorization Service is composed of three main 
  components:
