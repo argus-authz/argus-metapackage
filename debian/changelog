@@ -1,5 +1,6 @@
 emi-argus (1.6.0) unstable; urgency=low
 
-  * Argus metapackage for EMI-3. Close #007
+  * Debian Argus metapackage for EMI-3. Close #007
+  * BDII and lcg-expiregridmapdir are not (yet) available on Debian.
 
  -- Valery Tschopp <valery.tschopp@switch.ch>  Wed, 14 Nov 2012 14:59:16 +0100
