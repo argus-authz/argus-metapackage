@@ -10,8 +10,8 @@ Vcs-Browser: https://github.com/argus-authz/argus-metapackage
 Vcs-Git: git://github.com/argus-authz/argus-metapackage.git
 Build-Depends: debhelper (>= 7.0.50~)
 Checksums-Sha1: 
- bab83b386e1d734d41f229f7f41cfec77709a688 2174 emi-argus_1.6.0.tar.gz
+ 6779cd9f769695bd2fdb6328a6970526b7e9730c 2258 emi-argus_1.6.0.tar.gz
 Checksums-Sha256: 
- 1f0ffcb21c0a967c3a608f2ab00caf23b612997fe5ceb2205a578dfa5580499c 2174 emi-argus_1.6.0.tar.gz
+ 5b0cfafa729f50380058eff5c1adddff2111a5e28c4441ef7b2772715c2f63a8 2258 emi-argus_1.6.0.tar.gz
 Files: 
- fbdb72c1e89f60c869d36f9be0076a52 2174 emi-argus_1.6.0.tar.gz
+ d3036568941669e6af5b92238e1b38b2 2258 emi-argus_1.6.0.tar.gz
