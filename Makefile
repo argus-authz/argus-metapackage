@@ -17,8 +17,8 @@
 #
 # RPM/Debian packaging
 #
-name = emi-argus
-version = 1.6.0
+name = argus-authz
+version = 1.7.0
 release = 1
 
 git_url = https://github.com/argus-authz/argus-metapackage.git
