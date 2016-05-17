@@ -5,3 +5,4 @@
 /*.dsc
 /*.tar.gz
 /fedora/*.spec
+.project
